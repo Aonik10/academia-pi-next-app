@@ -1,11 +1,18 @@
 "use client";
 
+import { Inscription } from "./components/buttons/buttons";
 import styles from "./page.module.scss";
 import { Carousel } from "antd";
 
 export default function Home() {
     return (
         <div className={styles.home}>
+            <h1 className={styles.header}>
+                ACELERA TU CARRERA
+                <h2 className={styles.subtitle}>CON NUESTROS CURSOS</h2>
+                <Inscription />
+            </h1>
+
             <div className={styles.carousel}>
                 <Carousel
                     effect="fade"
