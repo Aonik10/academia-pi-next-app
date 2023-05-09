@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@react-google-maps/api": "^2.18.1",
     "antd": "^5.4.7",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",

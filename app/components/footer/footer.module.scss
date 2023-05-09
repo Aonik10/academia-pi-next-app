@@ -1,0 +1,80 @@
+@import "../../variables.scss";
+
+.footer {
+    display:flex;
+    justify-content: center;
+    width: 100vw;
+    height: 400px;
+    background-color: black;
+    color: white;
+
+    .footer_content {
+        margin: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        width: 1200px;
+
+        h1 {
+            font-size: 22px;
+            margin: 0 0 28px 0;
+        }
+
+        p {
+            font-style: italic;
+            margin-bottom: 25px;
+
+            span {
+                color: $secondary-color
+            }
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style-type: none;
+                margin-bottom: 30px;
+                cursor: pointer;
+            }
+        }
+
+        .logo {
+            text-align: center;
+
+            h1 {
+                font-size: 24px;
+                margin: 0;
+
+                span {
+                    font-size: 40px;
+                }
+            }
+        }
+
+        .common_courses {
+
+        }
+
+        .about_us {
+            
+        }
+
+        .contact {
+
+            .whatsapp_icon {
+                margin-right: 10px;
+            }
+
+            .social_media {
+                
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                }
+
+            }
+        }
+        
+    }
+}

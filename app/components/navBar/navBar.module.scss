@@ -11,12 +11,21 @@
     z-index: 10;
     transition: background-color 500ms, padding 300ms;
 
+    .logo {
+
+        img {
+            cursor: pointer;
+        }
+        
+    }
+
     .nav_bar_titles {
         display: flex;
         justify-content: space-between;
         color: white;
         text-transform: uppercase;
         font-weight: 700;
+        text-shadow: -1px 0 black, 0 1px black;
 
         .nav_bar_title {
             margin: 0 25px;

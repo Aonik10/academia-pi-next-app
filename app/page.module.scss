@@ -1,18 +1,28 @@
+@import "./variables.scss";
+
 .home {
-	height: 1080px;
 	position: relative;
 
 	.header {
 		position: absolute;
-		font-size: 3vw;
 		color: white;
-		bottom: 40%;
+		bottom: 25%;
 		left: 15%;
 		z-index: 1;
-		line-height: 30px;
+		line-height: 18px;
+		width: 650px;
+		text-shadow: -1px 0 black, 0 1px black;
 
-		.subtitle {
-			font-size: 2.5vw;
+		h1 {
+			font-size: 40px;
+		}
+
+		h2 {
+			font-size: 50px;
+		}
+
+		p {
+			font-size: 16px;
 		}
 	}
 
@@ -24,17 +34,155 @@
 		}
 
 		.first_slide {
-			background-image: url("./assets/images/home/Portada00.jpg");
+			background-image: url("./assets/images/home/Portada04.webp");
 		}
 
 		.second_slide {
-			background-image: url("./assets/images/home/Portada01.jpg");
+			background-image: url("./assets/images/home/Portada05.jpg");
 
 		}
 
 		.third_slide {
-			background-image: url("./assets/images/home/Portada03.jpg");
+			background-image: url("./assets/images/home/Portada06.jpg");
 
 		}
 	}
 }
+
+.services {
+	display: flex;
+	justify-content: space-around;
+	margin: 75px auto;
+
+	.service {
+		width: 300px;
+
+		h1 {
+			text-align: center;
+		}
+
+		p {
+			text-align: justify;
+		}
+	}
+}
+
+.reviews {
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	width: 100vw;
+	height: 400px;
+	
+
+	.header {
+		width: 500px;
+		padding:  0 50px;
+		margin-bottom: 100px;
+
+		h1 {
+			font-size: 44px;
+		}
+
+		p {
+			font-size: 18px;
+		}
+
+		.testimonies {
+
+			.reviewsCarousel {
+
+			}
+		}
+	}
+}
+
+.why_us {
+	display: flex;
+	height: 530px;
+	margin-bottom: 50px;
+
+	.girl_img {
+		margin: 50px 50px 0 0;
+		min-width: 500px;
+		width: 800px;
+		border-radius: 0 20px 20px 0;
+		background-image: url("./assets/images/resources/study-online-girl.webp");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.info_container {
+		flex: 1;
+		position: relative;
+		background-color: transparent;
+
+		& > h1 {
+			margin: 50px 0 0 0;
+			font-size: 40px;
+		}
+
+		p { 
+			font-style: italic;
+
+			span {
+				color: $secondary-color;
+				font-weight: 700;
+			}
+		}
+		
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			opacity: 0.2;
+			background-image: url("./assets/images/resources/pi_symbol.png");
+			padding: 50px 0 300px;
+			background-position: left 10% bottom 40%;
+			position: absolute;
+			z-index: -1;
+			filter: $primary-color-filter;
+		}
+
+		.grid_container {
+			display: grid;
+			grid-template-columns: 300px 300px;
+			grid-template-rows: 200px 200px;
+			column-gap: 50px;
+	
+			.grid_item {
+				
+				h1 {
+					font-size: 30px;
+				}
+			}
+		}
+	}
+	
+}
+
+.courses_preview {
+	height: 200px;
+	margin: 200px 0;
+	text-align: center;
+}
+
+.location {
+
+	.map_container {
+		width: 90%;
+		margin: 5%;
+		height: 400px;
+		box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	
+		span {
+	
+		}
+	}
+}
+
