@@ -3,6 +3,8 @@
 import styles from "./page.module.scss";
 import { Carousel } from "antd";
 import { ReviewCard } from "./components/cards/reviewCard";
+import example from "./assets/images/resources/review-example.png";
+import example2 from "./assets/images/resources/review-example-2.png";
 
 export function Reviews() {
     return (
@@ -16,9 +18,45 @@ export function Reviews() {
             </div>
             <div className={styles.testimonies}>
                 <Carousel effect="scrollx" className={styles.reviewsCarousel}>
-                    <ReviewCard />
+                    <ReviewCard
+                        photo={example}
+                        name="Maria la del Barrio"
+                        title="Estudiante de 3er año FCE UNaM"
+                        testimony="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Laborum et eum odit error earum quasi, officiis aliquam
+                        nesciunt tempore numquam repellat cumque voluptates
+                        asperiores similique reprehenderit rerum repellendus alias
+                        fugiat ut culpa. Nam sed deleniti dolores, ducimus inventore
+                        earum saepe?"
+                    />
+                    <ReviewCard
+                        photo={example2}
+                        name="Daniela Polaca"
+                        title="Estudiante de 2er año Montoya"
+                        testimony="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Laborum et eum odit error earum quasi, officiis aliquam
+    nesciunt tempore numquam repellat cumque voluptates
+    asperiores similique reprehenderit rerum repellendus alias
+    fugiat ut culpa. Nam sed deleniti dolores, ducimus inventore
+    earum saepe?"
+                    />
                 </Carousel>
             </div>
         </div>
     );
 }
+
+/* 
+<ReviewCard
+    photo={example2}
+    name="Daniela Polaca"
+    title="Estudiante de 2er año Montoya"
+    testimony="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Laborum et eum odit error earum quasi, officiis aliquam
+    nesciunt tempore numquam repellat cumque voluptates
+    asperiores similique reprehenderit rerum repellendus alias
+    fugiat ut culpa. Nam sed deleniti dolores, ducimus inventore
+    earum saepe?"
+/>
+
+*/

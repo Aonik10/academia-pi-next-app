@@ -3,7 +3,6 @@ import { Inter, Merriweather } from "next/font/google";
 import NavBar from "./components/navBar/navBar";
 import Footer from "./components/footer/footer";
 
-const inter = Inter({ subsets: ["latin"] });
 const merriweather = Merriweather({
     subsets: ["latin"],
     weight: ["400", "700"],
