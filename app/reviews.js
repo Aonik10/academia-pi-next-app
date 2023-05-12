@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./page.module.scss";
 import { Carousel } from "antd";
 import { ReviewCard } from "./components/cards/reviewCard";
+import styles from "./page.module.scss";
 import example from "./assets/images/resources/review-example.png";
 import example2 from "./assets/images/resources/review-example-2.png";
 import dynamic from "next/dynamic";
@@ -18,10 +18,7 @@ export function Reviews() {
                 </p>
             </div>
             <div className={styles.testimonies}>
-                <CarouselNoSSR
-                    effect="scrollx"
-                    className={styles.reviews_carousel}
-                >
+                <CarouselNoSSR effect="scrollx">
                     <ReviewCard
                         photo={example}
                         name="Maria la del Barrio"

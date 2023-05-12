@@ -91,10 +91,32 @@
 	.testimonies {
 		width: 480px;
 
+		.ant-carousel {
+
+			.slick-slider {
+				color: red !important;
+				.slick-dots {
+					color: red !important;
+					li {
+						color: red !important;
+						button {
+							color: red !important;
+						}						
+						button:after {
+							color: red !important;
+						}
+					}
+				}
+			}
+		}
+		
+		
 	}
 }
 
-
+.slick-dots li button:after {
+	color: red;
+}
 
 .why_us {
 	display: flex;
