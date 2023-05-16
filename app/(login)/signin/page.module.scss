@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: url("../../assets/images/login/composition-watercolor-markers-painting.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.flipper {
+	transition: transform 150ms linear;
+}
+
+.flip {
+	transform: rotateY(90deg);
+}

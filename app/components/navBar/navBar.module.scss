@@ -32,6 +32,8 @@
             padding: 35px 0;
             transition: padding 500ms, color 300ms;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
 
             &:hover {
                 color: $primary-color;

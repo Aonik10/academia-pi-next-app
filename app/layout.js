@@ -1,7 +1,5 @@
 import "./globals.scss";
-import { Inter, Merriweather } from "next/font/google";
-import NavBar from "./components/navBar/navBar";
-import Footer from "./components/footer/footer";
+import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({
     subsets: ["latin"],
@@ -16,11 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={merriweather.className}>
-                <NavBar />
-                {children}
-                <Footer />
-            </body>
+            <body className={merriweather.className}>{children}</body>
         </html>
     );
 }

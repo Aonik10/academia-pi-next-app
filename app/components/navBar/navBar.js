@@ -36,7 +36,7 @@ function NavBar() {
                     <div className={styles.nav_bar_title}>Profesores</div>
                     <div className={styles.nav_bar_title}>Eventos</div>
                     <div className={styles.nav_bar_title}>Contacto</div>
-                    <Link href={"/login"} className={styles.nav_bar_title}>
+                    <Link href={"/signin"} className={styles.nav_bar_title}>
                         Login
                     </Link>
                 </div>
