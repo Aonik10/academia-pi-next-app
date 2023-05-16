@@ -20,7 +20,6 @@ export default function Login() {
         const onTransitionEnd = (event) => {
             if (event.target != flipperDiv) return;
             if (flipping) {
-                console.log(front);
                 setFront(!front);
                 setFlipping(false);
             }
