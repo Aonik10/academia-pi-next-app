@@ -3,9 +3,27 @@
 import SignIn from "./signin";
 import SignUp from "./signup";
 import styles from "./page.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, use } from "react";
+
+async function getUniversities() {
+    const res = await fetch("http://localhost:3000/api/routes/universities");
+    return res.json();
+}
+
+async function getCareers() {
+    const res = await fetch("http://localhost:3000/api/routes/careers");
+    return res.json();
+}
+
+const universitiesPromise = getUniversities();
+const careersPromise = getCareers();
 
 export default function Login() {
+    const { universities } = use(universitiesPromise);
+    const { careers } = use(careersPromise);
+    console.log(universities);
+    console.log(careers);
+
     const [front, setFront] = useState(true);
     const [flipping, setFlipping] = useState(false);
 
@@ -39,7 +57,11 @@ export default function Login() {
                 {front ? (
                     <SignIn onSwitch={switchFront} />
                 ) : (
-                    <SignUp onSwitch={switchFront} />
+                    <SignUp
+                        onSwitch={switchFront}
+                        universities={universities}
+                        careers={careers}
+                    />
                 )}
             </div>
         </div>

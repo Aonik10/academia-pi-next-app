@@ -1,17 +1,48 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./signup.module.scss";
 import { Button, Cascader, Form, Input } from "antd";
+import Spinner from "@/app/components/spinner/Spinner";
 
-export default function SignUp({ onSwitch }) {
+export default function SignUp({ onSwitch, universities, careers }) {
+    const router = useRouter();
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (values) => {
+        setLoading(true);
+        try {
+            let state = await fetch("http://localhost:3001/api/routes/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
+            if (state.status === "Success") {
+                router.push("/signin");
+            }
+        } catch (error) {
+            console.log(error);
+            alert("Ocurrio un error, contacte al administrador");
+        }
+        setLoading(false);
+    };
+
     return (
         <div className={styles.signup}>
-            <Form className={styles.signup_form} layout="vertical">
+            <Form
+                className={styles.signup_form}
+                layout="vertical"
+                onFinish={handleSubmit}
+            >
                 <div className={styles.names}>
                     <Form.Item
                         className={styles.form_item}
                         label="Nombre"
-                        name="nombre"
+                        name="name"
                         rules={[
                             {
                                 required: true,
@@ -24,7 +55,7 @@ export default function SignUp({ onSwitch }) {
                     <Form.Item
                         className={styles.form_item}
                         label="Apellido"
-                        name="apellido"
+                        name="lastname"
                         rules={[
                             {
                                 required: true,
@@ -95,70 +126,29 @@ export default function SignUp({ onSwitch }) {
                 <Form.Item
                     className={styles.form_item}
                     label="Universidad"
-                    name="universidad"
+                    name="university"
                 >
                     <Cascader
                         size="large"
                         className={styles.cascader}
-                        options={[
-                            {
-                                value: "UNAM - FCE",
-                                label: "UNAM - FCE",
-                            },
-                            {
-                                value: "UNAM - EXACTAS",
-                                label: "UNAM - EXACTAS",
-                            },
-                            {
-                                value: "UNAM - SOCIALES",
-                                label: "UNAM - SOCIALES",
-                            },
-                            {
-                                value: "MONTOYA",
-                                label: "MONTOYA",
-                            },
-                            {
-                                value: "OTRA",
-                                label: "OTRA",
-                            },
-                        ]}
+                        options={universities.map((univ) => ({
+                            value: univ.id,
+                            label: univ.title,
+                        }))}
                     />
                 </Form.Item>
                 <Form.Item
                     className={styles.form_item}
                     label="Carrera"
-                    name="carrera"
+                    name="carrer"
                 >
                     <Cascader
                         size="large"
                         className={styles.cascader}
-                        options={[
-                            {
-                                value: "Licenciatura en Economia",
-                                label: "Licenciatura en Economia",
-                            },
-                            {
-                                value: "Licenciatura en Adm. de Empresas",
-                                label: "Licenciatura en Adm. de Empresas",
-                            },
-                            {
-                                value: "Contador Público",
-                                label: "Contador Público",
-                            },
-
-                            {
-                                value: "Técnico Administrativo Contable",
-                                label: "Técnico Administrativo Contable",
-                            },
-                            {
-                                value: "Secretariado Administrativo",
-                                label: "Secretariado Administrativo",
-                            },
-                            {
-                                value: "Otro",
-                                label: "Otro",
-                            },
-                        ]}
+                        options={careers.map((career) => ({
+                            value: career.id,
+                            label: career.title,
+                        }))}
                     />
                 </Form.Item>
                 <Form.Item>
@@ -167,7 +157,7 @@ export default function SignUp({ onSwitch }) {
                         htmlType="submit"
                         className={styles.create_account_btn}
                     >
-                        Crear cuenta
+                        {loading ? <Spinner /> : "Crear cuenta"}
                     </Button>
                     {"¿Ya tienes cuenta? "}
                     <a className={styles.sign_in} onClick={onSwitch}>

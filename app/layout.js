@@ -1,5 +1,6 @@
 import "./globals.scss";
 import { Merriweather } from "next/font/google";
+import Provider from "./components/Provider";
 
 const merriweather = Merriweather({
     subsets: ["latin"],
@@ -14,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={merriweather.className}>{children}</body>
+            <body className={merriweather.className}>
+                <Provider>
+                    <main className="app">{children}</main>
+                </Provider>
+            </body>
         </html>
     );
 }
